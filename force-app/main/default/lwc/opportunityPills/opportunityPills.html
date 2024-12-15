@@ -1,0 +1,29 @@
+<!--
+  @description       : 
+  @author            : codysechelski@mecanoconsulting.com
+  @group             : 
+  @last modified on  : 08-23-2024
+  @last modified by  : codysechelski@mecanoconsulting.com
+-->
+<template>
+  <div class="pillswrapper">
+    <template if:true={isWorking}>
+      <lightning-spinner
+        alternative-text="Loading"
+        size="xx-small"
+        variant="inverse"
+      ></lightning-spinner>
+    </template>
+    <template if:false={isWorking}>
+      <template for:each={pills} for:item="pill">
+        <c-opportunity-pill
+          key={pill.id}
+          label={pill.label}
+          background-color={pill.backgroundColor}
+          use-dark-text={pill.useDarkText}
+          icon-name={pill.iconName}
+        ></c-opportunity-pill>
+      </template>
+    </template>
+  </div>
+</template>
